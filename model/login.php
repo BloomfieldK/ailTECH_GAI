@@ -1,7 +1,7 @@
 <?php
  $serveur='localhost';
  $login="root";
-$motdepasse="btssio";
- $mabase="test";
+$motdepasse="";
+ $mabase="gaiimmo";
 
 ?>
