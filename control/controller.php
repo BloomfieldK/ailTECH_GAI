@@ -28,9 +28,6 @@ switch($cas)
   case "RechercheDemande":
     $maVue->afficheRechercheDem();
     break;
-  case "Connexion":
-    $maVue->afficheConnexion();
-    break;
   case "budget":
     $t=$maquette->getAllOrderBy("budget");
     $maVue->afficheTab($t,100); 
