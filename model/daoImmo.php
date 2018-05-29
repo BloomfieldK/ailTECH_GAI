@@ -15,7 +15,7 @@ class DaoImmo extends MyPDO
   function getAllOrderBy($ordre)
 	{ 
 	//echo "Ordre : ".$ordre."<br>";
-	$strSQL = "SELECT idDemande, prenom, genre, ville, budget, superficie FROM demande d, personne p order by ".$ordre;
+	$strSQL = "SELECT idDemande, prenom, genre, ville, budget, superficie FROM demande d, personne p WHERE d.idPersonne=p.idPersonne order by ".$ordre;
 	$getAllOrderBy=$this->prepare($strSQL);
 	$getAllOrderBy->execute();
 	$t=$getAllOrderBy->fetchAll(PDO::FETCH_OBJ);
