@@ -25,6 +25,12 @@ switch($cas)
   case "accueil":
     $maVue->afficheAccueil(); 
     break;
+  case "RechercheDemande":
+    $maVue->afficheRechercheDem();
+    break;
+  case "Connexion":
+    $maVue->afficheConnexion();
+    break;
   case "budget":
     $t=$maquette->getAllOrderBy("budget");
     $maVue->afficheTab($t,100); 
@@ -48,7 +54,7 @@ switch($cas)
   case "villePrecise":
     if (!empty($ville))
     {
-	  $t=$maquette->getAllByVille($ville);
+    $t=$maquette->getAllByVille($ville);
     $maVue->afficheTab($t,100); 
     }
     break;  
@@ -71,7 +77,7 @@ switch($cas)
       $maVue->afficheTab($t,100);
       break;
   case "mini":
-   	  $t=$maquette->getAllByBudgetMini();
+      $t=$maquette->getAllByBudgetMini();
       $maVue->afficheTab($t,100);
       break;
   case "budmoy":
@@ -92,7 +98,7 @@ switch($cas)
 	
       if ($choix=="supprimer")
        {
-       $tab=$maquette->getAllById($ide);
+       //$tab=$maquette->getAllById($ide);
        //???????????????????
        //
        }
@@ -122,7 +128,8 @@ switch($cas)
    
     if (!(empty($personne)||empty($ville)||empty($budget)||empty($genre)))
     {
-
+      $tab=$maquette->Insere($personne,$ville,$budget,$genre,$superficie);
+      $maVue->afficheMess('Insertion reussie');
       // $requete="INSERT INTO demande (personne,ville,budget,genre,superficie) 
       // VALUES('$personne','$ville','$budget','$genre','$superficie')";
       //??????         
