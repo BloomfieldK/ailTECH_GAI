@@ -180,13 +180,6 @@ class Vue
 	}
 
 	//----------------------------------------------
-	
-	function formulaireNouveau()
-	{
-		
-	}
-
-	//----------------------------------------------
 
 	function formulaireNouveau()
 	{
