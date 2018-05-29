@@ -5,7 +5,7 @@
       <title>GestImmo</title>
      
       <script language=javascript src="../asset/mesfonctions.js"></script>
-      <style>background-color: #BCCE98</style>
+      <style>background-color: #BCCE98 </style>
 
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -24,3 +24,4 @@
          <h1  font-family:'Arial' font-size='48pt'>Gestion Agence Immobilière</h1>
       </div>
       <hr>
+--!>
