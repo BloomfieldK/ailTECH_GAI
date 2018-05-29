@@ -99,6 +99,75 @@ class Vue
 	}
 
 	//----------------------------------------------
+	//----------------------------------------------
+	function afficheRechercheDem()
+	{
+		$this->enteteHtml();
+		echo '<div class="container" id="formulaire">
+            <table>
+                  <tr>
+                        <th>
+                        <form class="from-horizontal" name=form1 action=./controller.php method=post target=controller> Demande pour la ville de
+                            <div class="form-group">
+                              <input class="form-control" type=text name=ville id=ville size=20>
+                              <input class="form-control" type=hidden name=cas value=villePrecise>
+                              <input class="form-control" type=button name=bouton value=Ville onclick=javascript:controle(form1,ville,ville);>
+                           </div>
+                        </form>
+                      </th>
+                  </tr>
+
+
+                  <tr>
+                        <th>
+                        <form class="from-horizontal" name=form2 action=./controller.php method=post target=controller> Demande dont le budget est < &agrave;
+                             <div class="form-group">
+                                <input class="form-control" type=number name=budget size=5>
+                                <input class="form-control" type=hidden name=cas value=budgetInferieur>
+                                <input class="form-control" type=button value=Budget onclick=javascript:controle(form2,budget,budget);>
+                        </div>
+                        </form>
+                        </th> 
+                  </tr>
+
+                  <tr>
+                        <th>
+                        <form class="from-horizontal" name=form3 action=./controller.php method=post target=controller> Demande dont le budget est < &agrave;
+                        <div class="form-group">
+                            <input class="form-control" type=number name=budget>
+                            <br> et dont le genre est <&agrave; <br>
+                           <input class="form-control" type=text size=15 name=genre>
+                           <input class="form-control" type=hidden name=cas value=budgetGenre>
+                           <input class="form-control" type=button value=BudgetGenre onclick=javascript:controle(form3,budget,genre);> 
+                        </div>
+                        </form>
+                        </th>
+                  </tr>      
+
+                  <tr>
+                        <th>
+                        <form class="form-horizontal" name=form4 action=./controller.php method=post target=controller> id n&deg;
+                        <div class="form-group">     
+                              <input class="form-control" type=text size=10 name=ide>
+                              <br> <input class="form-control" type=hidden name=cas value=modifier>
+                              <input class="form-control" type=radio name=choix value=modifier> modifier
+                              <br>
+                              <input class="form-control" type=radio name=choix value=supprimer> supprimer <br>
+                              <input class="form-control" type=button value=Choix? onclick=javascript:controle(form4,ide,ide);>               
+                        </div>
+                        </form>
+                        </th>
+		     </tr>
+
+                </table>
+               </div>
+              </div>
+            </div>';
+        include "../inc/footer.inc.php";
+	}
+
+	//----------------------------------------------
+	
 	function afficheMess($t)
 	{
 		echo $t;
@@ -111,10 +180,35 @@ class Vue
 	}
 
 	//----------------------------------------------
+	
+	function formulaireNouveau()
+	{
+		
+	}
+
+	//----------------------------------------------
 
 	function formulaireNouveau()
 	{
-		//??
+	$this->enteteHtml();
+		echo '<h3>Ajouter</h3>';
+		echo "
+            <table class=cadre width=60%>
+            <tr><td align=center>
+            <form name=formulaire action=./controller.php method=post target=controller>
+            prenom :<input type=text size=10 name=personne value=>
+            ville :<input type=text size=20 name=ville value=>
+            budget:<input type=number size=10 name=budget value=>
+            genre: <input type=text size=15 name=genre value=>
+            <input type=hidden name=cas value=nouveau>
+            <input type=hidden name=ide value= ></td></tr>
+			<tr><td align=center>
+			superficie :<input type=number size=40 name=superficie value=></td></tr>
+			<tr><td align=center>
+			<input type=button value=Ok onclick=javascript:Validation();>
+            </form></td></tr></table></div>
+			";
+		include "../inc/footer.inc.php";
 	}
 
 	//----------------------------------------------
