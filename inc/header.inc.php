@@ -15,13 +15,4 @@
       <body style="background-color:;">
             
             
-   <!--
-   <link rel="stylesheet" type="text/css" media="screen" href="../asset/style.css">
-      <link rel="stylesheet" type="text/css" media="print" href="../asset.impression.css">
-<body>
-      <div id="entete">
-         <a href="../index.php"><img class="logo" src="../images/logo.png" alt="logo"></a>
-         <h1  font-family:'Arial' font-size='48pt'>Gestion Agence Immobilière</h1>
-      </div>
-      <hr>
---!>
+  
