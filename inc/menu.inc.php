@@ -1,4 +1,47 @@
-<div id="menu">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../index.php"><img class="logo" src="../images/logo.png" alt="logo"></a>
+    </div>
+    <br>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="../index.php">Gestion Agence Immobiliere</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Consulter par:<span class="caret"></span></a>
+        <br>
+        <ul class="dropdown-menu">
+          <li> <a href=./controller.php?cas=idDemande target=controller> ↓  Id </a> </li>
+          <li> <a href=./controller.php?cas=budget target=controller> ↓ Budget</a></li>
+          <li> <a href=./controller.php?cas=personne target=controller>  ↓ Personne </a></li>
+          <li> <a href=./controller.php?cas=genre target=controller>  ↓ Genre </a></li>
+          <li> <a href=./controller.php?cas=ville target=controller> ↓ Ville </a></li>
+          <li> <a href=./controller.php?cas=superficie target=controller> ↓ Superficie</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Statistiques<span class="caret"></span></a>
+      <br>
+      <ul class="dropdown-menu">
+      <li> <a href=./controller.php?cas=budmoy target=controller>Budget moyen </a></li>
+      <li> <a href=./controller.php?cas=mini target=controller> Budget mini</a></li>
+      <li> <a href=./controller.php?cas=maxi target=controller> Budget maxi </a></li>
+      <li> <a href=./controller.php?cas=budsupmoy target=controller> Budget > Moyenne </a></li>
+      <li> <a href=./controller.php?cas=nbbiens target=controller> Nombre de biens </a></li>
+    </ul>
+    </li>
+    <li><a href=./controller.php?cas=RechercheDemande target=controller>Recherche par demande</a></li>
+    <li><a href=./controller.php?cas=insere target=controller>Inserer</a></li>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+<!--<div id="menu">
       <h2> Menu </h2>    
     <h4> Tri </h4>
     <ul>
@@ -87,5 +130,5 @@
             </table>
       </div>
       <br>
-</div>
+</div>--!>
 
