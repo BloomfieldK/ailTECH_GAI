@@ -72,10 +72,7 @@ function getAllBySuperficie($superficie)
     return $this->monDao->getAllBySuperficie($superficie);	
     }
 //---------------------------------------------------------------------    	
-function getAllByPersonne($idPersonne)
-    {
-	return $this->monDao->getAllByPersonne($idPersonne);
-    }
+
 //---------------------------------------------------------------------    
 function getAllById($id)
 	{
