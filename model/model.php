@@ -87,6 +87,11 @@ function getVilleByVilleStartWith($ville)
 	$t=$this->monDao->getVilleByVilleStartWith($ville);
 	return $t;
 	}
+//---------------------------------------------------------------------
+function Insere($personne,$ville,$budget,$genre,$superficie)
+    {
+    return $this->monDao->Insere($personne,$ville,$budget,$genre,$superficie);
+    }
 
 };// fin de classe
 
