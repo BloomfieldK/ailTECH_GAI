@@ -38,13 +38,24 @@ class DaoImmo extends MyPDO
 	return $t;	
 	}
 //----------------------------------------------------------------------
-	function getAllByPersonne($idPersonne)
+    function getAllBySuperficie($superficie)
+        {
+        $getAllBySuperficie=$this->prepare("SELECT * FROM demande WHERE superficie = ?");
+        $getAllBySuperficie->execute(array($superficie));
+        $t=$getAllBySuperficie->fetchAll(PDO::FETCH_OBJ);
+        return $t;
+    }
+//---------------------------------------------------------------------
+	function getAllById($id)
 	{
-	$getAllByPersonne=$this->prepare("SELECT * FROM demande WHERE idPersonne = ?");
-	$getAllByPersonne->execute(array($idPersonne));
-	$t=$getAllByPersonne->fetchAll(PDO::FETCH_OBJ);
+	$getAllById=$this->prepare("SELECT * FROM demande d, personne p WHERE d.idPersonne=p.idPersonne AND idDemande = ?");
+	$getAllById->execute(array($id));
+	$t=$getAllById->fetchAll(PDO::FETCH_OBJ);
 	return $t;
 	}
+//---------------------------------------------------------------------
+	
+	
 //---------------------------------------------------------------------	
     function getAllByGenre($genre)
     {
@@ -101,6 +112,22 @@ class DaoImmo extends MyPDO
     // requete adminer testé reussie
     // UPDATE demande d, personne p SET p.prenom='lolo' ,d.ville='saint-leu' , d.budget='255000', d.genre='villa' ,d.superficie='120' WHERE p.idPersonne=d.idPersonne AND d.idDemande='9';
     }
+//---------------------------------------------------------------------
+    function Insere($personne,$ville,$budget,$genre,$superficie)
+        {
+            $res=$this->query("SELECT * from personne WHERE prenom='$personne'")->fetchAll(PDO::FETCH_ASSOC);
+            if(isset($res[0])){
+                $idvar=$res[0]['idPersonne']; //la variable pour l'id personne
+                $demandeMax=$this->query("SELECT MAX(idDemande) from demande")->fetchAll(PDO::FETCH_NUM)[0][0]+1; //recupere l'id max de demande
+                $this->query("INSERT INTO demande (idDemande, idPersonne, genre, ville, budget, superficie, categorie) VALUES($demandeMax, $idvar,'$genre','$ville','$budget','$superficie','vente')");               
+            }
+            else{
+                $personneMax=$this->query("SELECT MAX(idPersonne) FROM personne")->fetchAll(PDO::FETCH_NUM)[0][0]+1;
+                $Insert1=$this->query("INSERT INTO personne (idPersonne, prenom) VALUES ('$personneMax','$personne')");
+                $demandeMax=$this->query("SELECT MAX(idDemande) from demande")->fetchAll(PDO::FETCH_NUM)[0][0]+1;
+                $this->query("INSERT INTO demande (idDemande, idPersonne, genre, ville, budget, superficie, categorie) VALUES($demandeMax, $personneMax,'$genre','$ville', '$budget','$superficie', 'vente')"); 
+                }
+        }
 //----------------------------------------------------------------------
     function getAllByNbBiens()
     {
@@ -118,10 +145,10 @@ class DaoImmo extends MyPDO
     return $t;
     }
 //---------------------------------------------------------------------	
-	function getAllById($ide)
+	function getAllById($id)
 	{
 	$getAllById=$this->prepare("SELECT * FROM demande d, personne p WHERE d.idPersonne = p.idPersonne AND idDemande=?");
-	$getAllById->execute(array($ide));
+	$getAllById->execute(array($id));
 	$t=$getAllById->fetchAll(PDO::FETCH_OBJ);
 	return $t;
 	}	
